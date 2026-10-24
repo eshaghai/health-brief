@@ -1,0 +1,121 @@
+# Companies and topics to track via Google News.
+#
+# To ADD a company, add a line like:
+#     - name: Levels
+# That's it. If the name is a common word (e.g. "Fay", "Nourish"), also add:
+#   query:    what to search Google News for, so it finds the right company
+#   aliases:  other spellings to recognize in headlines
+#   context:  a story only counts as being about this company if it ALSO mentions
+#             one of these words (stops "Nourish Our Community food drive" matching)
+#     - name: Fay
+#       query: '"Fay" (dietitian OR nutrition OR telehealth)'
+#       aliases: ["Fay Nutrition"]
+#       context: [dietitian, nutrition, telehealth, startup]
+#
+# `category` (optional): wearables, nutrition, longevity, retail, ai, funding, policy
+
+companies:
+  # Wearables & biometrics
+  - name: Oura
+    query: '"Oura ring" OR "Oura Health" OR "Oura" wearable'
+    aliases: ["Oura Ring", "Oura Health", "Ouraring"]
+    category: wearables
+  - name: Whoop
+    query: '"Whoop" wearable OR fitness OR band'
+    aliases: ["WHOOP"]
+    category: wearables
+  - name: Ultrahuman
+    category: wearables
+  - name: Apple Health
+    query: '"Apple Watch" health OR "Apple Health" OR AirPods hearing'
+    aliases: ["Apple Watch", "HealthKit"]
+    category: wearables
+  - name: Garmin
+    query: 'Garmin health OR smartwatch OR wearable'
+    category: wearables
+  - name: Samsung Health
+    query: '"Samsung Health" OR "Galaxy Watch" OR "Galaxy Ring"'
+    aliases: ["Galaxy Watch", "Galaxy Ring"]
+    category: wearables
+  - name: Dexcom
+    query: 'Dexcom Stelo OR Dexcom consumer OR Dexcom CGM'
+    aliases: ["Stelo"]
+    category: wearables
+  - name: Abbott Lingo
+    query: '"Abbott" Lingo OR "Abbott" Libre consumer'
+    aliases: ["Lingo", "FreeStyle Libre"]
+    category: wearables
+
+  # Nutrition & personalized health
+  - name: Nourish
+    query: '"Nourish" (telehealth OR insurance OR "virtual nutrition" OR dietitians OR startup)'
+    context: [telehealth, dietitian, dietitians, startup, raises, funding, insurance, virtual]
+    category: nutrition
+  - name: Fay
+    query: '"Fay" (dietitian OR nutrition OR telehealth OR startup)'
+    aliases: ["Fay Nutrition"]
+    context: [dietitian, dietitians, nutrition, telehealth, startup, raises, funding]
+    category: nutrition
+  - name: Virta Health
+    aliases: ["Virta"]
+    category: nutrition
+  - name: Noom
+    category: nutrition
+  - name: Levels
+    query: '"Levels" (metabolic OR glucose OR CGM) app OR startup'
+    aliases: ["Levels Health"]
+    context: [metabolic, glucose, CGM, app, startup]
+    category: nutrition
+  - name: ZOE
+    query: '"ZOE" (nutrition OR "gut health" OR app OR "Tim Spector")'
+    context: [nutrition, gut, app, Spector, microbiome, study]
+    category: nutrition
+  - name: Hims & Hers
+    query: '"Hims & Hers" OR "Hims and Hers"'
+    aliases: ["Hims and Hers", "Hims"]
+    category: nutrition
+  - name: Ro
+    query: '"Ro" telehealth OR "Roman Health" OR "Ro Health" GLP-1'
+    aliases: ["Roman Health", "Ro Health"]
+    context: [telehealth, GLP-1, Wegovy, Zepbound, weight, Serena, Saeed, startup]
+    category: nutrition
+  - name: WeightWatchers
+    aliases: ["Weight Watchers", "WW International"]
+    category: nutrition
+
+  # Longevity & cutting-edge
+  - name: Eight Sleep
+    category: longevity
+  - name: Function Health
+    category: longevity
+  - name: Superpower
+    query: '"Superpower" (health OR longevity OR "blood test") startup'
+    context: [health, longevity, blood, startup, raises, biomarkers]
+    category: longevity
+  - name: Prenuvo
+    category: longevity
+  - name: Neko Health
+    category: longevity
+
+topics:
+  - name: GLP-1 telehealth
+    query: 'GLP-1 telehealth OR compounded semaglutide OR compounded tirzepatide'
+    category: nutrition
+  - name: Consumer wearables FDA
+    query: 'FDA wearable OR "wellness device" OR "general wellness" guidance'
+    category: policy
+  - name: Consumer health AI chatbot
+    query: '"ChatGPT Health" OR "health chatbot" OR "AI health coach"'
+    category: ai
+  - name: Digital health funding
+    query: 'digital health startup raises OR "Series A" OR "Series B" health'
+    category: funding
+  - name: Anthropic & OpenAI in health
+    query: '(Anthropic OR Claude OR OpenAI OR ChatGPT) health OR healthcare OR medical'
+    category: ai
+  - name: Rock Health reports
+    query: '"Rock Health" digital health'
+    category: funding
+  - name: HSA FSA wellness
+    query: 'HSA FSA eligible wellness OR "HSA-eligible" OR "Truemed"'
+    category: policy

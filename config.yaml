@@ -1,0 +1,31 @@
+# General settings. Safe to edit; every line is explained.
+
+site_title: "Health Brief"
+site_tagline: "Consumer & digital health, filtered for me"
+
+# Times on the site are shown in this time zone.
+timezone: "America/New_York"
+
+# Ignore anything published more than this many days ago when fetching.
+max_age_days: 7
+
+# How many items to take from any single feed per run (stops one noisy feed from flooding the site).
+max_items_per_feed: 40
+
+# How many top stories appear in "Today's Brief" on the home page.
+brief_size: 7
+
+# Category pages and search show stories from this many days back.
+site_window_days: 60
+
+# Stories scoring below this (1-10) are still saved but hidden from the home page and category pages.
+min_score_to_show: 3
+
+# Google News search settings (used for every entry in watchlist.yaml).
+google_news:
+  enabled: true
+  language: "en-US"
+  country: "US"
+
+# Network settings for fetching feeds.
+request_timeout_seconds: 20

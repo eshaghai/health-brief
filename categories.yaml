@@ -1,0 +1,62 @@
+# The 7 categories and the keywords used to sort stories into them.
+# A story goes into the category whose keywords it matches most (headline matches count double).
+# Add keywords to improve sorting; matching ignores capitalization.
+# A story that matches NO category and NO watchlist company is treated as off-topic and dropped.
+
+wearables:
+  label: "Wearables & Biometrics"
+  short: "Wearables"
+  keywords: [wearable, wearables, smartwatch, smart watch, smart ring, fitness tracker, Apple Watch,
+    Galaxy Watch, Galaxy Ring, Pixel Watch, Fitbit, Garmin, Oura, Whoop, Ultrahuman, Polar, Coros,
+    CGM, continuous glucose, Dexcom, Stelo, Libre, Lingo, heart rate, HRV, blood pressure monitor,
+    biometric, biometrics, sleep tracking, hearing aid, AirPods, HealthKit, Apple Health, Samsung Health,
+    sensor, ECG, blood oxygen, smart scale]
+
+nutrition:
+  label: "Nutrition & Personalized Health"
+  short: "Nutrition"
+  keywords: [nutrition, dietitian, nutritionist, diet, GLP-1, GLP-1s, semaglutide, tirzepatide, Ozempic,
+    Wegovy, Zepbound, Mounjaro, orforglipron, obesity, weight loss, weight management, compounded,
+    metabolic health, diabetes, prediabetes, glucose, gut health, microbiome, personalized nutrition,
+    food as medicine, medically tailored, Noom, Virta, Levels, ZOE, Nourish, Fay, Hims, Ro,
+    WeightWatchers, Weight Watchers, telehealth, menopause, testosterone]
+
+longevity:
+  label: "Longevity & Frontier Health"
+  short: "Longevity"
+  keywords: [longevity, healthspan, lifespan, aging, anti-aging, biological age, epigenetic,
+    preventive, prevention, blood test, blood testing, lab testing, biomarkers, full-body MRI, MRI scan,
+    Function Health, Superpower, Prenuvo, Neko Health, Eight Sleep, sleep, rapamycin, NAD,
+    peptides, Bryan Johnson, Attia, executive health, concierge medicine]
+
+retail:
+  label: "Consumer Retail Health"
+  short: "Retail"
+  keywords: [supplement, supplements, vitamin, vitamins, protein, functional beverage, functional food,
+    energy drink, probiotic, creatine, electrolyte, skincare, skin care, beauty, wellness brand,
+    DTC, direct-to-consumer, retail, retailer, Walmart, Target, CVS, Walgreens, Costco, Amazon,
+    Sephora, Ulta, CPG, consumer brand, shelf, aisle, GNC, Thorne, AG1, Athletic Greens,
+    Olipop, Poppi, Liquid Death, celsius]
+
+ai:
+  label: "AI in Healthcare"
+  short: "AI"
+  keywords: [AI, artificial intelligence, machine learning, LLM, large language model, generative AI,
+    GenAI, chatbot, ChatGPT, OpenAI, Anthropic, Claude, Gemini, Google Health, Med-PaLM, MedGemma,
+    Microsoft, Copilot, AI scribe, ambient, Abridge, Nuance, agentic, AI agent, health coach, foundation model]
+
+funding:
+  label: "Funding, M&A & Company Moves"
+  short: "Funding & M&A"
+  keywords: [raises, raised, funding, Series A, Series B, Series C, Series D, seed round, pre-seed,
+    venture, investors, valuation, acquires, acquired, acquisition, merger, merge, buys, IPO,
+    goes public, SPAC, layoffs, lays off, job cuts, appoints, names CEO, hires, steps down,
+    partnership, partners with, deal, unicorn]
+
+policy:
+  label: "Policy & Reimbursement"
+  short: "Policy"
+  keywords: [FDA, FTC, CMS, Medicare, Medicaid, HHS, regulation, regulatory, guidance, rule,
+    clearance, cleared, 510(k), De Novo, warning letter, enforcement, lawsuit, settlement, ban,
+    reimbursement, coverage, insurer, HSA, FSA, policy, Congress, bill, legislation, RFK, MAHA,
+    general wellness, health claims, compounding]

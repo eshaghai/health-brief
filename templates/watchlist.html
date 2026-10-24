@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Watchlist</h1>
+  <p class="lede">Latest news for each company and topic I track. To add one, add a line to <code>watchlist.yaml</code> (see the README).</p>
+  <nav class="jump">{% for w in companies %}<a href="#{{ w.anchor }}" class="{{ 'has-news' if w['items'] else 'no-news' }}">{{ w.name }}{% if w['items'] %} <span>{{ w.week }}</span>{% endif %}</a>{% endfor %}</nav>
+</section>
+
+<h2 class="section-title">Companies</h2>
+{% for w in companies %}
+<section class="watch" id="{{ w.anchor }}">
+  <h3 class="watch-name">{{ w.name }} <span class="tag tag-{{ w.category }}">{{ cats[w.category].short if w.category in cats else "" }}</span>
+    <span class="muted small">{{ w.week }} this week · {{ w['items'] | length }} in {{ cfg.site_window_days }} days</span></h3>
+  {% if w['items'] %}
+  <ul class="headlines">
+    {% for i in w['items'][:5] %}
+    <li><a href="{{ i.link }}" target="_blank" rel="noopener">{{ i.title }}</a> <span class="muted small">{{ i.source }} · {{ i.published | fmt_date }}</span></li>
+    {% endfor %}
+  </ul>
+  {% else %}<p class="muted small">No news in the last {{ cfg.site_window_days }} days.</p>{% endif %}
+</section>
+{% endfor %}
+
+<h2 class="section-title">Topics</h2>
+{% for w in topics %}
+<section class="watch" id="{{ w.anchor }}">
+  <h3 class="watch-name">{{ w.name }} <span class="muted small">{{ w['items'] | length }} stories</span></h3>
+  {% if w['items'] %}
+  <ul class="headlines">
+    {% for i in w['items'][:5] %}
+    <li><a href="{{ i.link }}" target="_blank" rel="noopener">{{ i.title }}</a> <span class="muted small">{{ i.source }} · {{ i.published | fmt_date }}</span></li>
+    {% endfor %}
+  </ul>
+  {% else %}<p class="muted small">No news in the last {{ cfg.site_window_days }} days.</p>{% endif %}
+</section>
+{% endfor %}
+{% endblock %}

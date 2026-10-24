@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% from "macros.html" import story_browser %}
+{% block content %}
+<section class="hero">
+  <h1>All Stories</h1>
+  <p class="lede">Every relevant story from the last {{ cfg.site_window_days }} days. Search, filter by category, or sort.</p>
+</section>
+{{ story_browser(root, cats) }}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% from "macros.html" import story_browser %}
+{% block content %}
+<section class="hero hero-{{ slug }}">
+  <p class="kicker"><a href="{{ root }}index.html">Home</a> / Industry</p>
+  <h1>{{ cat.label }}</h1>
+  <p class="lede">{{ stats.week }} stories this week · {{ stats.total }} in the last {{ cfg.site_window_days }} days{% if stats.companies %} · most mentioned: {{ stats.companies | join(", ") }}{% endif %}</p>
+  <nav class="cat-switch" aria-label="Other industries">
+    {% for s, c in cats.items() %}<a href="{{ root }}category/{{ s }}.html" class="chip chip-{{ s }}"{% if s == slug %} aria-current="page"{% endif %}>{{ c.short }}</a>{% endfor %}
+  </nav>
+</section>
+{{ story_browser(root, cats, preset_cat=slug) }}
+{% endblock %}

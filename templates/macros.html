@@ -1,0 +1,47 @@
+{# One story card. Keep in sync with renderCard() in static/app.js. #}
+{% macro card(i, root, cats, show_why=True) -%}
+<article class="card" data-id="{{ i.id }}" data-item='{{ card_json(i) }}'>
+  <div class="meta">
+    <a class="tag tag-{{ i.category }}" href="{{ root }}category/{{ i.category }}.html">{{ cats[i.category].short }}</a>
+    <span class="score s{{ i.score }}" title="Relevance to my profile (1-10)">{{ i.score }}</span>
+    <span class="src">{{ i.source }}</span><span class="dot">·</span><time datetime="{{ i.published }}">{{ i.published | fmt_date }}</time>
+  </div>
+  <h3><a href="{{ i.link }}" target="_blank" rel="noopener">{{ i.title }}</a></h3>
+  {% if i.summary %}<p class="summary">{{ i.summary }}</p>{% endif %}
+  {% if show_why %}<p class="why"><span>Why it's here</span> {{ i.why }}</p>{% endif %}
+  {% if i.also %}
+  <details class="also"><summary>Also covered by {{ i.also | length }} more</summary>
+    <ul>{% for a in i.also[:8] %}<li><a href="{{ a.link }}" target="_blank" rel="noopener">{{ a.source }}</a></li>{% endfor %}</ul>
+  </details>
+  {% endif %}
+  <div class="actions">
+    <button type="button" class="btn-save" aria-pressed="false">☆ Save</button>
+    <button type="button" class="btn-read" aria-pressed="false">Mark read</button>
+  </div>
+</article>
+{%- endmacro %}
+
+{# Interactive list (search, filters, sort), rendered in the browser from stories.json. #}
+{% macro story_browser(root, cats, preset_cat="") -%}
+<div class="browser" data-preset-cat="{{ preset_cat }}">
+  <div class="controls">
+    <input type="search" class="q" placeholder="Search headlines, sources, companies…" aria-label="Search">
+    {% if not preset_cat %}
+    <div class="chips" role="group" aria-label="Category">
+      <button type="button" class="chip" data-cat="" aria-pressed="true">All</button>
+      {% for slug, c in cats.items() %}<button type="button" class="chip chip-{{ slug }}" data-cat="{{ slug }}" aria-pressed="false">{{ c.short }}</button>{% endfor %}
+    </div>
+    {% endif %}
+    <div class="row">
+      <label>Period <select class="period">
+        <option value="7">Last 7 days</option><option value="30" selected>Last 30 days</option><option value="9999">Everything</option>
+      </select></label>
+      <label>Sort <select class="sort"><option value="score">Most relevant</option><option value="date">Newest</option></select></label>
+      <label class="check"><input type="checkbox" class="hide-read"> Hide read</label>
+    </div>
+  </div>
+  <p class="count muted" aria-live="polite"></p>
+  <div class="list"></div>
+  <button type="button" class="more" hidden>Show more</button>
+</div>
+{%- endmacro %}

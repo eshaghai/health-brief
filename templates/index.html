@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% from "macros.html" import card %}
+{% block content %}
+<section class="hero">
+  <p class="kicker">{{ today_str }}</p>
+  <h1>Today's Brief</h1>
+  <p class="lede">The {{ brief | length }} most relevant stories from the last {{ brief_window }} across consumer &amp; digital health.</p>
+</section>
+
+<section class="brief">
+  {% for i in brief %}
+  <div class="brief-item"><span class="rank">{{ loop.index }}</span>{{ card(i, root, cats) }}</div>
+  {% else %}
+  <p class="empty">No stories yet. The first daily run will fill this in.</p>
+  {% endfor %}
+</section>
+
+<section>
+  <h2 class="section-title">Browse by industry</h2>
+  <div class="tiles">
+    {% for slug, c in cats.items() %}
+    {% set t = tiles[slug] %}
+    <a class="tile tile-{{ slug }}" href="{{ root }}category/{{ slug }}.html">
+      <span class="tile-label">{{ c.label }}</span>
+      <span class="tile-count">{{ t.count }} this week</span>
+      {% if t.top %}<span class="tile-top">{{ t.top.title }}</span>{% endif %}
+      <span class="tile-go">Open →</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="quick-links">
+  <a href="{{ root }}week.html">This Week digest →</a>
+  <a href="{{ root }}watchlist.html">Watchlist →</a>
+  <a href="{{ root }}funding.html">Funding tracker →</a>
+  <a href="{{ root }}stories.html">Search all stories →</a>
+</section>
+{% endblock %}

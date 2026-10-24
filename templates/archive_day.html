@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "macros.html" import card %}
+{% block content %}
+<section class="hero">
+  <p class="kicker"><a href="{{ root }}archive.html">Archive</a></p>
+  <h1>{{ day_label }}</h1>
+  <p class="lede">{{ count }} stories collected this day, grouped by industry.</p>
+  <nav class="jump">{% for slug, lst in groups %}<a href="#{{ slug }}">{{ cats[slug].short }} <span>{{ lst | length }}</span></a>{% endfor %}</nav>
+</section>
+{% for slug, lst in groups %}
+<section id="{{ slug }}">
+  <h2 class="section-title">{{ cats[slug].label }}</h2>
+  {% for i in lst %}{{ card(i, root, cats) }}{% endfor %}
+</section>
+{% endfor %}
+{% endblock %}

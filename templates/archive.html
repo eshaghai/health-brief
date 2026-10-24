@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Archive</h1>
+  <p class="lede">Every daily run, newest first. Each day shows the stories first collected that day.</p>
+</section>
+<ul class="archive-list">
+  {% for d in days %}
+  <li><a href="{{ root }}archive/{{ d.date }}.html">{{ d.label }}</a> <span class="muted small">{{ d.count }} stories{% if d.top %} · top: {{ d.top }}{% endif %}</span></li>
+  {% else %}<li class="empty">Nothing archived yet.</li>{% endfor %}
+</ul>
+{% endblock %}

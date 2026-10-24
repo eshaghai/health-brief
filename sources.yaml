@@ -1,0 +1,149 @@
+# News sources. Every source here was tested and working on 2026-10-24.
+#
+# Two kinds of source:
+#   url:          a normal RSS/Atom feed
+#   google_news:  a Google News search, for publishers whose feed blocks automated readers.
+#                 "site:example.com" returns that publisher's recent headlines.
+#
+# To ADD a source: copy a block, change the name and url (or google_news), save.
+# To REMOVE a source: delete its block, or add `enabled: false` to pause it.
+# `category` is optional, a hint used only when a story's keywords are ambiguous.
+#   Valid categories: wearables, nutrition, longevity, retail, ai, funding, policy
+#
+# Broad feeds are fine: every story is relevance-filtered and off-topic ones are dropped.
+# Check that every source works:   python scripts/check_sources.py
+
+sources:
+  # ---------- Digital health / industry ----------
+  - name: Fierce Healthcare
+    url: https://www.fiercehealthcare.com/rss/xml
+  - name: Healthcare Dive
+    url: https://www.healthcaredive.com/feeds/news/
+  - name: STAT (Health Tech)
+    url: https://www.statnews.com/category/health-tech/feed/
+  - name: TechCrunch (Biotech & Health)
+    url: https://techcrunch.com/category/biotech-health/feed/
+  - name: Digital Health Wire
+    url: https://www.digitalhealthwire.com/feed/
+  - name: Healthcare Brew
+    url: https://www.healthcare-brew.com/feed.xml
+  - name: Endpoints News (Health Tech)
+    url: https://endpts.com/channel/health-tech/feed/
+  - name: MobiHealthNews
+    google_news: "site:mobihealthnews.com"
+  - name: Healthcare IT News
+    google_news: "site:healthcareitnews.com"
+  - name: Fierce Biotech
+    google_news: "site:fiercebiotech.com consumer OR wearable OR GLP-1 OR obesity OR digital"
+
+  # ---------- Wearables / consumer tech ----------
+  - name: DC Rainmaker
+    url: https://www.dcrainmaker.com/feed
+    category: wearables
+  - name: The Verge (Health)
+    url: https://www.theverge.com/rss/health/index.xml
+  - name: 9to5Mac (Apple Health)
+    url: https://9to5mac.com/guides/apple-health/feed/
+    category: wearables
+  - name: 9to5Mac (Apple Watch)
+    url: https://9to5mac.com/guides/apple-watch/feed/
+    category: wearables
+  - name: Oura Blog
+    url: https://ouraring.com/blog/feed/
+    category: wearables
+  - name: Garmin Newsroom
+    url: https://www.garmin.com/en-US/newsroom/rss/
+    category: wearables
+  - name: Wareable
+    google_news: "site:wareable.com"
+    category: wearables
+
+  # ---------- Nutrition / retail / DTC ----------
+  - name: Food Dive
+    url: https://www.fooddive.com/feeds/news/
+    category: retail
+  - name: FoodNavigator-USA
+    url: https://www.foodnavigator-usa.com/arc/outboundfeeds/rss/
+    category: nutrition
+  - name: NutraIngredients-USA
+    url: https://www.nutraingredients-usa.com/arc/outboundfeeds/rss/
+    category: nutrition
+  - name: Nutraceuticals World
+    url: https://www.nutraceuticalsworld.com/feed/
+    category: nutrition
+  - name: SupplySide Supplement Journal
+    url: https://www.supplysidesj.com/rss.xml
+    category: retail
+  - name: Retail Dive
+    url: https://www.retaildive.com/feeds/news/
+    category: retail
+  - name: Modern Retail
+    url: https://www.modernretail.co/feed/
+    category: retail
+  - name: Glossy
+    url: https://www.glossy.co/feed/
+    category: retail
+  - name: Beauty Independent
+    google_news: "site:beautyindependent.com"
+    category: retail
+
+  # ---------- Longevity ----------
+  - name: Longevity.Technology
+    google_news: "site:longevity.technology"
+    category: longevity
+
+  # ---------- Funding ----------
+  - name: Crunchbase News (Health)
+    url: https://news.crunchbase.com/sections/health-wellness-biotech/feed/
+    category: funding
+
+  # ---------- AI ----------
+  - name: OpenAI News
+    url: https://openai.com/news/rss.xml
+    category: ai
+  - name: Google Blog (Health)
+    url: https://blog.google/technology/health/rss/
+    category: ai
+  - name: Google Blog (AI)
+    url: https://blog.google/technology/ai/rss/
+    category: ai
+  - name: STAT (AI)
+    url: https://www.statnews.com/topic/artificial-intelligence/feed/
+    category: ai
+
+  # ---------- Additional high-signal sources (added by setup, all verified) ----------
+  - name: Second Opinion (Christina Farr)
+    url: https://secondopinion.media/feed
+  - name: Hospitalogy
+    url: https://hospitalogy.com/feed/
+  - name: AI Health Uncut (Sergei Polevikov)
+    url: https://sergeiai.substack.com/feed
+    category: ai
+  - name: Ground Truths (Eric Topol)
+    url: https://erictopol.substack.com/feed
+  - name: MedCity News
+    url: https://medcitynews.com/feed/
+  - name: CB Insights Research
+    url: https://www.cbinsights.com/research/feed/
+  - name: CNBC Health & Science
+    url: https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000108
+  - name: Axios (all topics, filtered)
+    url: https://api.axios.com/feed/
+  - name: KFF Health News
+    url: https://kffhealthnews.org/feed/
+    category: policy
+  - name: npj Digital Medicine
+    url: https://www.nature.com/npjdigitalmed.rss
+    category: ai
+  - name: BevNET
+    url: https://www.bevnet.com/feed
+    category: retail
+  - name: NOSH
+    url: https://www.nosh.com/feed
+    category: retail
+  - name: Food Business News
+    url: https://www.foodbusinessnews.net/rss/articles
+    category: retail
+  - name: WWD Beauty
+    url: https://wwd.com/beauty-industry-news/feed/
+    category: retail

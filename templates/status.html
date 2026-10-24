@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Status &amp; sources</h1>
+  <p class="lede">Health of the last daily run. A broken source is skipped; the rest of the run still completes.</p>
+</section>
+{% if last_run %}
+<ul class="stats">
+  <li><strong>{{ updated_str }}</strong><span>last run</span></li>
+  <li><strong>{{ last_run.sources_ok }}/{{ last_run.sources_total }}</strong><span>sources OK</span></li>
+  <li><strong>{{ last_run.fetched }}</strong><span>stories fetched</span></li>
+  <li><strong>{{ last_run.new_items }}</strong><span>new (after dedupe)</span></li>
+  <li><strong>{{ last_run.junk_dropped }}</strong><span>junk dropped</span></li>
+</ul>
+<div class="table-wrap">
+<table class="sources">
+  <thead><tr><th>Source</th><th>Type</th><th>Status</th><th>Recent items</th></tr></thead>
+  <tbody>
+  {% for s in last_run.sources %}
+  <tr class="{{ 'bad' if not s.ok }}"><td>{{ s.name }}</td><td>{{ "Google News" if s.kind == "google_news" else "RSS" }}</td>
+    <td>{% if s.ok %}✓ OK{% else %}✗ {{ s.error }}{% endif %}</td><td>{{ s['items'] }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% else %}<p class="empty">No run recorded yet.</p>{% endif %}
+{% endblock %}

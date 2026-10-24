@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if title %}{{ title }} · {% endif %}{{ cfg.site_title }}</title>
+<meta name="description" content="{{ cfg.site_tagline }}">
+<link rel="stylesheet" href="{{ root }}static/style.css?v={{ build_id }}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+<script>
+  // Apply saved theme before paint to avoid a flash.
+  (function () { var t = localStorage.getItem("hb_theme"); if (t) document.documentElement.dataset.theme = t; })();
+</script>
+</head>
+<body data-root="{{ root }}" data-page="{{ page }}">
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="{{ root }}index.html">{{ cfg.site_title }}</a>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Light / dark">◐</button>
+  </div>
+  <nav class="wrap nav" aria-label="Main">
+    {% for slug, label in nav %}
+    <a href="{{ root }}{{ slug }}.html"{% if page == slug %} aria-current="page"{% endif %}>{{ label }}</a>
+    {% endfor %}
+  </nav>
+</header>
+<main class="wrap">
+{% block content %}{% endblock %}
+</main>
+<footer class="wrap site-footer">
+  <p>Last updated <strong>{{ updated_str }}</strong>{% if last_run %} · {{ last_run.sources_ok }}/{{ last_run.sources_total }} sources OK{% endif %} · <a href="{{ root }}status.html">Status &amp; sources</a></p>
+  <p class="muted">Headlines and short excerpts link to the original publishers. Ranking is automatic keyword matching against my profile.</p>
+</footer>
+<script>window.HB_CATS = {{ cats | tojson }};</script>
+<script src="{{ root }}static/app.js?v={{ build_id }}"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+# Runs every morning: fetch news → save JSON to the repo → rebuild and publish the website.
+# Also runs when you edit a config file (sources/watchlist/profile/categories), and on demand
+# from the Actions tab ("Run workflow").
+name: Daily update
+
+on:
+  schedule:
+    - cron: "17 10 * * *"   # 10:17 UTC = 6:17 am New York (5:17 am in winter)
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths-ignore: ["data/**", "README.md"]
+
+permissions:
+  contents: write   # to save the daily JSON files
+  pages: write      # to publish the site
+  id-token: write
+
+concurrency:
+  group: daily-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Fetch news
+        # If fetching fails entirely, still rebuild the site from what's already saved.
+        continue-on-error: true
+        run: python scripts/ingest.py
+
+      - name: Build website
+        run: python scripts/build_site.py
+
+      - name: Save today's data to the repo
+        run: |
+          git config user.name "health-brief-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || git commit -m "Daily update $(date -u +%F)"
+          git push
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

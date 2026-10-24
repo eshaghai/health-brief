@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% from "macros.html" import card %}
+{% block content %}
+<section class="hero">
+  <p class="kicker">{{ digest.start | fmt_date }} – {{ digest.end | fmt_date }} · {{ digest.count }} stories</p>
+  <h1>This Week</h1>
+  <p class="lede">The week in five bullets, plus companies worth a closer look. Built automatically by counting what showed up most.</p>
+</section>
+
+<section class="digest">
+  <ol class="bullets">
+    {% for b in digest.bullets %}
+    <li><strong>{{ b.label }}.</strong> {{ b.text }}{% if b.link %} <a href="{{ b.link }}" target="_blank" rel="noopener">{{ b.link_text }}</a>{% endif %}</li>
+    {% endfor %}
+  </ol>
+</section>
+
+{% if digest.research %}
+<section>
+  <h2 class="section-title">Worth researching</h2>
+  <p class="muted small">Companies in this week's funding and M&amp;A news that aren't on my watchlist yet.</p>
+  <ul class="research">
+    {% for r in digest.research %}
+    <li><strong>{{ r.company }}</strong> <span class="muted small">{{ r.detail }}</span><br><a href="{{ r.link }}" target="_blank" rel="noopener">{{ r.title }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<section>
+  <h2 class="section-title">Top 10 stories of the week</h2>
+  {% for i in digest.top %}{{ card(i, root, cats) }}{% endfor %}
+</section>
+{% endblock %}

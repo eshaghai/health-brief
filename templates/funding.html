@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Funding Tracker</h1>
+  <p class="lede">Funding rounds, M&amp;A, IPOs and layoffs spotted in headlines over the last {{ cfg.site_window_days }} days. Tap a column header to sort. Details are pulled from headlines automatically, so check the article for exact figures.</p>
+</section>
+<div class="controls">
+  <input type="search" class="table-filter" placeholder="Filter by company, investor, type…" aria-label="Filter table">
+  <label class="check"><input type="checkbox" class="consumer-only"> Hide low-relevance (score &lt; 5)</label>
+</div>
+<div class="table-wrap">
+<table class="sortable funding">
+  <thead><tr>
+    <th data-type="date" aria-sort="descending">Date</th>
+    <th>Company</th>
+    <th>Type</th>
+    <th data-type="num">Amount</th>
+    <th>Round</th>
+    <th>Investors / target</th>
+    <th>Category</th>
+    <th data-type="num">Score</th>
+  </tr></thead>
+  <tbody>
+  {% for i in deals %}{% set d = i.deal %}
+  <tr data-score="{{ i.score }}">
+    <td data-sort="{{ i.published }}">{{ i.published | fmt_date }}</td>
+    <td><a href="{{ i.link }}" target="_blank" rel="noopener" title="{{ i.title }}">{{ d.company or i.title[:60] ~ '…' }}</a></td>
+    <td><span class="deal deal-{{ d.type | lower | replace('&', '') }}">{{ d.type }}</span></td>
+    <td data-sort="{{ d.amount_usd or 0 }}">{{ d.amount or "–" }}</td>
+    <td>{{ d.round or "–" }}</td>
+    <td>{% if d.type == "M&A" %}{{ "Target: " ~ d.target if d.target else "–" }}{% else %}{{ d.investors or "–" }}{% endif %}</td>
+    <td><span class="tag tag-{{ i.category }}">{{ cats[i.category].short }}</span></td>
+    <td data-sort="{{ i.score }}">{{ i.score }}</td>
+  </tr>
+  {% else %}
+  <tr><td colspan="8" class="empty">No deals detected yet.</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}
