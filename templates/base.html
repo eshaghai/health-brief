@@ -5,8 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% if title %}{{ title }} · {% endif %}{{ cfg.site_title }}</title>
 <meta name="description" content="{{ cfg.site_tagline }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="{{ root }}static/style.css?v={{ build_id }}">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+<meta name="theme-color" content="#0b2545">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230b2545'/><path d='M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z' fill='%2360a5fa'/></svg>">
 <script>
   // Apply saved theme before paint to avoid a flash.
   (function () { var t = localStorage.getItem("hb_theme"); if (t) document.documentElement.dataset.theme = t; })();
@@ -15,7 +19,7 @@
 <body data-root="{{ root }}" data-page="{{ page }}">
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="brand" href="{{ root }}index.html">{{ cfg.site_title }}</a>
+    <a class="brand" href="{{ root }}index.html"><span class="brand-mark" aria-hidden="true"></span>{{ cfg.site_title }}</a>
     <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Light / dark">◐</button>
   </div>
   <nav class="wrap nav" aria-label="Main">

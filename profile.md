@@ -39,6 +39,6 @@ Stories mentioning these get pushed lower (they're usually provider/hospital-sid
 - EHR, Epic Systems, revenue cycle, hospital staffing, nurse staffing
 - prior authorization, claims processing, Medicaid fraud
 - clinical trial phase, oncology trial, biosimilar
-- therapeutics, drug firm, drug discovery, biopharma, drug developer, drug candidate, rare disease, oncology, antibody, gene therapy
+- therapeutics, biotech, drug firm, drug discovery, biopharma, drug developer, drug candidate, rare disease, oncology, antibody, gene therapy
 - cybersecurity breach, ransomware
 - webinar, sponsored, podcast episode
