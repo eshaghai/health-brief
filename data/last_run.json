@@ -1,12 +1,26 @@
 {
- "finished_at": "2026-10-24T23:55:48.958757+00:00",
+ "finished_at": "2026-10-25T00:16:56.600681+00:00",
  "sources_total": 75,
- "sources_ok": 75,
- "fetched": 1076,
- "junk_dropped": 47,
- "duplicates_dropped": 1024,
- "new_items": 5,
+ "sources_ok": 73,
+ "fetched": 1078,
+ "junk_dropped": 49,
+ "duplicates_dropped": 1028,
+ "new_items": 1,
  "sources": [
+  {
+   "name": "AI Health Uncut (Sergei Polevikov)",
+   "kind": "feed",
+   "ok": false,
+   "error": "HTTPError: 403 Client Error: Forbidden for url: https://sergeiai.substack.com/feed",
+   "items": 0
+  },
+  {
+   "name": "Ground Truths (Eric Topol)",
+   "kind": "feed",
+   "ok": false,
+   "error": "HTTPError: 403 Client Error: Forbidden for url: https://erictopol.substack.com/feed",
+   "items": 0
+  },
   {
    "name": "9to5Mac (Apple Health)",
    "kind": "feed",
@@ -20,13 +34,6 @@
    "ok": true,
    "error": null,
    "items": 1
-  },
-  {
-   "name": "AI Health Uncut (Sergei Polevikov)",
-   "kind": "feed",
-   "ok": true,
-   "error": null,
-   "items": 0
   },
   {
    "name": "Axios (all topics, filtered)",
@@ -299,7 +306,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 9
+   "items": 10
   },
   {
    "name": "Google News: Rock Health reports",
@@ -358,13 +365,6 @@
    "items": 40
   },
   {
-   "name": "Ground Truths (Eric Topol)",
-   "kind": "feed",
-   "ok": true,
-   "error": null,
-   "items": 0
-  },
-  {
    "name": "Healthcare Brew",
    "kind": "feed",
    "ok": true,
@@ -404,7 +404,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 21
+   "items": 22
   },
   {
    "name": "MedCity News",
