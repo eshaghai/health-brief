@@ -116,11 +116,8 @@ sources:
     url: https://secondopinion.media/feed
   - name: Hospitalogy
     url: https://hospitalogy.com/feed/
-  - name: AI Health Uncut (Sergei Polevikov)
-    url: https://sergeiai.substack.com/feed
-    category: ai
   - name: Ground Truths (Eric Topol)
-    url: https://erictopol.substack.com/feed
+    google_news: "site:erictopol.substack.com"   # Substack blocks GitHub's servers, so read it via Google News
   - name: MedCity News
     url: https://medcitynews.com/feed/
   - name: CB Insights Research
