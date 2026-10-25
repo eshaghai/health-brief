@@ -1,26 +1,12 @@
 {
- "finished_at": "2026-10-25T00:16:56.600681+00:00",
- "sources_total": 75,
- "sources_ok": 73,
- "fetched": 1078,
- "junk_dropped": 49,
- "duplicates_dropped": 1028,
- "new_items": 1,
+ "finished_at": "2026-10-25T00:18:09.909793+00:00",
+ "sources_total": 74,
+ "sources_ok": 74,
+ "fetched": 1066,
+ "junk_dropped": 48,
+ "duplicates_dropped": 1003,
+ "new_items": 15,
  "sources": [
-  {
-   "name": "AI Health Uncut (Sergei Polevikov)",
-   "kind": "feed",
-   "ok": false,
-   "error": "HTTPError: 403 Client Error: Forbidden for url: https://sergeiai.substack.com/feed",
-   "items": 0
-  },
-  {
-   "name": "Ground Truths (Eric Topol)",
-   "kind": "feed",
-   "ok": false,
-   "error": "HTTPError: 403 Client Error: Forbidden for url: https://erictopol.substack.com/feed",
-   "items": 0
-  },
   {
    "name": "9to5Mac (Apple Health)",
    "kind": "feed",
@@ -166,7 +152,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 5
+   "items": 4
   },
   {
    "name": "Google News: Anthropic & OpenAI in health",
@@ -264,7 +250,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 25
+   "items": 12
   },
   {
    "name": "Google News: Neko Health",
@@ -365,6 +351,13 @@
    "items": 40
   },
   {
+   "name": "Ground Truths (Eric Topol)",
+   "kind": "google_news",
+   "ok": true,
+   "error": null,
+   "items": 3
+  },
+  {
    "name": "Healthcare Brew",
    "kind": "feed",
    "ok": true,
@@ -404,7 +397,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 22
+   "items": 21
   },
   {
    "name": "MedCity News",
