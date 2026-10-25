@@ -4,8 +4,10 @@ A personal news site for consumer & digital health. Every morning it collects st
 and 30 Google News searches, throws out junk and duplicates, ranks what's left against my interests,
 and publishes a clean, phone-friendly site. **Free to run:** no AI, no API keys, no paid services.
 
-**Pages:** Today's Brief (home) · one page per industry · All Stories (search) · Watchlist · This Week digest ·
-Funding Tracker · Archive · Saved (bookmarks stored in your browser) · Status (feed health).
+**Pages:** Today's Brief (home) · one page per industry · All Stories (search) · Watchlist (with Company radar) ·
+This Week digest · Funding Tracker · Archive · Saved (bookmarks stored in your browser) · Status (feed health).
+
+**Extras:** an RSS feed of my top stories, and a weekly email of the This Week digest every Sunday morning.
 
 ---
 
@@ -23,6 +25,28 @@ Funding Tracker · Archive · Saved (bookmarks stored in your browser) · Status
 
 Scoring is keyword-based (see `scripts/enrich.py`). It's recomputed on every run, so when you edit
 `profile.md`, `watchlist.yaml` or `categories.yaml`, the whole archive is re-ranked.
+
+---
+
+## RSS feed
+`https://eshaghai.github.io/health-brief/feed.xml` (also linked at the bottom of every page).
+Paste it into any feed reader (Feedly, Reeder, NetNewsWire, Inoreader…). It contains stories scoring
+6 or higher from the last 7 days; change `feed_min_score` in `config.yaml`.
+
+## Weekly email
+Every Sunday at about 8 am ET, `.github/workflows/weekly.yml` posts the This Week digest as an **Issue**
+in this repo (label `weekly-digest`) and mentions you, so GitHub emails it to you. Last week's issue is closed
+automatically. No email service or extra account is needed.
+- Not getting it? GitHub → your profile picture → **Settings** → **Notifications** → make sure **Email** is
+  ticked for "Participating, @mentions and custom". Check spam for `notifications@github.com`.
+- Send one now: **Actions** tab → **Weekly email** → **Run workflow**.
+- Change the day/time: edit the `cron:` line in `.github/workflows/weekly.yml` (times are UTC).
+- Stop it: **Actions** tab → **Weekly email** → **⋯** → **Disable workflow**.
+
+## Company radar
+On the Watchlist page: companies that keep showing up in headlines (funding, launches, partnerships…)
+but aren't on your watchlist yet. Add one to `watchlist.yaml` to start tracking it, or list it under
+`radar_ignore:` at the bottom of `watchlist.yaml` to mute it. It gets more useful as days accumulate.
 
 ---
 
@@ -111,6 +135,7 @@ are copied and nothing is scraped from web pages.
 | `sources.yaml`, `watchlist.yaml`, `profile.md`, `categories.yaml`, `config.yaml` | Your settings |
 | `data/items/` | Daily archive, one JSON file per day |
 | `data/last_run.json` | Health of the latest run (drives the Status page) |
-| `scripts/` | The code: `ingest.py` (fetch), `enrich.py` (score/sort), `digest.py` (This Week), `build_site.py` (website), `check_sources.py` (feed test) |
+| `scripts/` | The code: `ingest.py` (fetch), `enrich.py` (score/sort), `digest.py` (This Week), `radar.py` (Company radar), `build_site.py` (website + RSS), `weekly_email.py` (email text), `check_sources.py` (feed test) |
 | `templates/`, `static/` | Website layout, styles and browser code |
 | `.github/workflows/daily.yml` | The daily schedule |
+| `.github/workflows/weekly.yml` | The Sunday email |

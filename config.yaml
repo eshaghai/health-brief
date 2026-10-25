@@ -3,6 +3,9 @@
 site_title: "Health Brief"
 site_tagline: "Consumer & digital health, filtered for me"
 
+# The public address of the site (used for links in the RSS feed and weekly email).
+site_url: "https://eshaghai.github.io/health-brief/"
+
 # Times on the site are shown in this time zone.
 timezone: "America/New_York"
 
@@ -29,3 +32,6 @@ google_news:
 
 # Network settings for fetching feeds.
 request_timeout_seconds: 20
+
+# Your own RSS feed (feed.xml): stories at or above this score from the last 7 days.
+feed_min_score: 6

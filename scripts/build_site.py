@@ -8,6 +8,8 @@ import shutil
 import sys
 from collections import Counter
 from datetime import timedelta
+from email.utils import format_datetime
+from xml.sax.saxutils import escape
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
@@ -16,6 +18,7 @@ from common import (DATA_DIR, ITEMS_DIR, ROOT, SITE_DIR, load_config, load_yaml,
                     read_json, tz)
 from digest import build_digest
 from enrich import CATEGORY_ORDER, enrich_all, load_rules
+from radar import company_radar
 
 NAV = [("index", "Brief"), ("stories", "Stories"), ("watchlist", "Watchlist"), ("week", "This Week"),
        ("funding", "Funding"), ("archive", "Archive"), ("saved", "Saved")]
@@ -48,6 +51,32 @@ def pick_brief(items, n):
         if len(chosen) == n:
             break
     return chosen
+
+
+def write_feed(cfg, items, now):
+    """_site/feed.xml: an RSS feed of my top stories, for any feed reader."""
+    site = cfg.get("site_url", "").rstrip("/") + "/"
+    cutoff = now - timedelta(days=7)
+    top = [i for i in items if i["score"] >= cfg.get("feed_min_score", 6) and parse_iso(i["published"]) >= cutoff]
+    entries = []
+    for i in sorted(top, key=lambda i: i["published"], reverse=True)[:60]:
+        desc = (i.get("summary") or "") + f"<p><b>Why it's here:</b> {i['why']} (score {i['score']}/10)</p>"
+        entries.append(
+            "<item>"
+            f"<title>{escape(i['title'])}</title>"
+            f"<link>{escape(i['link'])}</link>"
+            f"<guid isPermaLink=\"false\">{i['id']}</guid>"
+            f"<pubDate>{format_datetime(parse_iso(i['published']))}</pubDate>"
+            f"<category>{escape(i['category'])}</category>"
+            f"<source url=\"{escape(site)}feed.xml\">{escape(i['source'])}</source>"
+            f"<description>{escape(desc)}</description>"
+            "</item>")
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
+           f"<title>{escape(cfg['site_title'])}</title><link>{escape(site)}</link>"
+           f"<atom:link href=\"{escape(site)}feed.xml\" rel=\"self\" type=\"application/rss+xml\"/>"
+           f"<description>{escape(cfg.get('site_tagline', ''))}</description>"
+           f"<lastBuildDate>{format_datetime(now)}</lastBuildDate>" + "".join(entries) + "</channel></rss>\n")
+    (SITE_DIR / "feed.xml").write_text(xml, encoding="utf-8")
 
 
 def slugify(s):
@@ -132,7 +161,7 @@ def build():
                          "items": lst, "week": sum(parse_iso(i["published"]) >= week_ago for i in lst)})
         return rows
     render("watchlist.html", "watchlist.html", "watchlist", title="Watchlist",
-           companies=watch_rows("companies"), topics=watch_rows("topics"))
+           companies=watch_rows("companies"), topics=watch_rows("topics"), radar=company_radar(visible))
 
     # This Week
     digest = build_digest(visible, load_rules()[2]["high"])
@@ -161,6 +190,7 @@ def build():
                day_label=label, groups=groups, count=len(day_items))
     render("archive.html", "archive.html", "archive", title="Archive", days=days)
 
+    write_feed(cfg, visible, now)
     render("saved.html", "saved.html", "saved", title="Saved")
     render("status.html", "status.html", "status", title="Status")
     (SITE_DIR / ".nojekyll").write_text("")

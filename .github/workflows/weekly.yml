@@ -1,0 +1,43 @@
+# Every Sunday morning: post the "This Week" digest as a GitHub Issue in this repo.
+# GitHub emails new issues to the repo owner, so it arrives in your inbox as a weekly newsletter.
+# Last week's issue is closed automatically. Run it any time from the Actions tab ("Run workflow").
+name: Weekly email
+
+on:
+  schedule:
+    - cron: "23 12 * * 0"   # Sundays 12:23 UTC = 8:23 am New York (7:23 am in winter)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  email:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Write digest
+        id: digest
+        run: |
+          echo "title=$(python scripts/weekly_email.py digest.md)" >> "$GITHUB_OUTPUT"
+          # Mentioning you guarantees GitHub sends the email notification.
+          printf '\ncc @%s\n' "${{ github.repository_owner }}" >> digest.md
+
+      - name: Post as an issue (GitHub emails it to you)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create weekly-digest --color 1d4ed8 --description "Weekly Health Brief email" --force
+          gh issue list --label weekly-digest --state open --json number -q '.[].number' | xargs -r -n1 gh issue close
+          gh issue create --title "${{ steps.digest.outputs.title }}" --body-file digest.md --label weekly-digest

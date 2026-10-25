@@ -119,3 +119,8 @@ topics:
   - name: HSA FSA wellness
     query: 'HSA FSA eligible wellness OR "HSA-eligible" OR "Truemed"'
     category: policy
+
+# Company radar (on the Watchlist page) flags companies that keep appearing in the news
+# but aren't listed above. Names here are never flagged; add any you don't care about.
+radar_ignore:
+  - Mass General Brigham

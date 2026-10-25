@@ -6,6 +6,24 @@
   <nav class="jump">{% for w in companies %}<a href="#{{ w.anchor }}" class="{{ 'has-news' if w['items'] else 'no-news' }}">{{ w.name }}{% if w['items'] %} <span>{{ w.week }}</span>{% endif %}</a>{% endfor %}</nav>
 </section>
 
+<h2 class="section-title">Company radar</h2>
+<p class="muted small">Companies that keep showing up in the news but aren't on my watchlist. To track one, add it to
+<code>watchlist.yaml</code>; to mute one, add it under <code>radar_ignore</code>. This list grows as more days are collected.</p>
+{% if radar %}
+<div class="table-wrap">
+<table class="radar">
+  <thead><tr><th>Company</th><th>Stories</th><th>Outlets</th><th>Area</th><th>Latest</th></tr></thead>
+  <tbody>
+  {% for r in radar %}
+  <tr><td><strong>{{ r.company }}</strong></td><td>{{ r.stories }}</td><td>{{ r.outlets }}</td>
+    <td>{% for c in r.categories %}<span class="tag tag-{{ c }}">{{ cats[c].short }}</span> {% endfor %}</td>
+    <td><a href="{{ r.latest.link }}" target="_blank" rel="noopener">{{ r.latest.title }}</a> <span class="muted small">{{ r.latest.published | fmt_date }}</span></td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% else %}<p class="empty">Nothing flagged yet.</p>{% endif %}
+
 <h2 class="section-title">Companies</h2>
 {% for w in companies %}
 <section class="watch" id="{{ w.anchor }}">

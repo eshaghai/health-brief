@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="{{ root }}static/style.css?v={{ build_id }}">
 <meta name="theme-color" content="#0b2545">
+<link rel="alternate" type="application/rss+xml" title="{{ cfg.site_title }}" href="{{ root }}feed.xml">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230b2545'/><path d='M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z' fill='%2360a5fa'/></svg>">
 <script>
   // Apply saved theme before paint to avoid a flash.
@@ -32,7 +33,7 @@
 {% block content %}{% endblock %}
 </main>
 <footer class="wrap site-footer">
-  <p>Last updated <strong>{{ updated_str }}</strong>{% if last_run %} · {{ last_run.sources_ok }}/{{ last_run.sources_total }} sources OK{% endif %} · <a href="{{ root }}status.html">Status &amp; sources</a></p>
+  <p>Last updated <strong>{{ updated_str }}</strong>{% if last_run %} · {{ last_run.sources_ok }}/{{ last_run.sources_total }} sources OK{% endif %} · <a href="{{ root }}status.html">Status &amp; sources</a> · <a href="{{ root }}feed.xml">RSS feed</a></p>
   <p class="muted">Headlines and short excerpts link to the original publishers. Ranking is automatic keyword matching against my profile.</p>
 </footer>
 <script>window.HB_CATS = {{ cats | tojson }};</script>
