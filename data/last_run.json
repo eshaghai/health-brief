@@ -1,11 +1,11 @@
 {
- "finished_at": "2026-10-25T00:18:09.909793+00:00",
+ "finished_at": "2026-10-25T10:45:47.022854+00:00",
  "sources_total": 74,
  "sources_ok": 74,
- "fetched": 1066,
- "junk_dropped": 48,
- "duplicates_dropped": 1003,
- "new_items": 15,
+ "fetched": 1080,
+ "junk_dropped": 44,
+ "duplicates_dropped": 983,
+ "new_items": 53,
  "sources": [
   {
    "name": "9to5Mac (Apple Health)",
@@ -33,7 +33,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 11
+   "items": 12
   },
   {
    "name": "BevNET",
@@ -152,7 +152,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 4
+   "items": 5
   },
   {
    "name": "Google News: Anthropic & OpenAI in health",
@@ -173,7 +173,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 8
+   "items": 9
   },
   {
    "name": "Google News: Consumer wearables FDA",
@@ -208,7 +208,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 2
+   "items": 1
   },
   {
    "name": "Google News: Function Health",
@@ -250,7 +250,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 12
+   "items": 23
   },
   {
    "name": "Google News: Neko Health",
@@ -271,14 +271,14 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 0
+   "items": 1
   },
   {
    "name": "Google News: Oura",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 26
+   "items": 27
   },
   {
    "name": "Google News: Prenuvo",
@@ -292,7 +292,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 10
+   "items": 8
   },
   {
    "name": "Google News: Rock Health reports",
@@ -320,7 +320,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 28
+   "items": 30
   },
   {
    "name": "Google News: Virta Health",
@@ -334,14 +334,14 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 10
+   "items": 9
   },
   {
    "name": "Google News: Whoop",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 25
+   "items": 24
   },
   {
    "name": "Google News: ZOE",
@@ -376,7 +376,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 30
+   "items": 33
   },
   {
    "name": "Hospitalogy",
@@ -397,7 +397,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 21
+   "items": 19
   },
   {
    "name": "MedCity News",
@@ -411,7 +411,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 28
+   "items": 27
   },
   {
    "name": "Modern Retail",
@@ -516,7 +516,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 23
+   "items": 24
   },
   {
    "name": "npj Digital Medicine",
