@@ -1,11 +1,11 @@
 {
- "finished_at": "2026-11-21T17:36:40.037766+00:00",
+ "finished_at": "2026-11-22T17:51:41.464146+00:00",
  "sources_total": 74,
  "sources_ok": 74,
- "fetched": 1055,
- "junk_dropped": 52,
- "duplicates_dropped": 894,
- "new_items": 109,
+ "fetched": 1059,
+ "junk_dropped": 46,
+ "duplicates_dropped": 920,
+ "new_items": 93,
  "sources": [
   {
    "name": "9to5Mac (Apple Health)",
@@ -33,7 +33,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 13
+   "items": 9
   },
   {
    "name": "BevNET",
@@ -54,7 +54,7 @@
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 10
+   "items": 11
   },
   {
    "name": "Crunchbase News (Health)",
@@ -152,7 +152,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 7
+   "items": 8
   },
   {
    "name": "Google News: Anthropic & OpenAI in health",
@@ -166,35 +166,35 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 28
+   "items": 29
   },
   {
    "name": "Google News: Consumer health AI chatbot",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 18
+   "items": 14
   },
   {
    "name": "Google News: Consumer wearables FDA",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 6
+   "items": 4
   },
   {
    "name": "Google News: Dexcom",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 7
+   "items": 9
   },
   {
    "name": "Google News: Digital health funding",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 33
+   "items": 34
   },
   {
    "name": "Google News: Eight Sleep",
@@ -215,14 +215,14 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 10
+   "items": 9
   },
   {
    "name": "Google News: GLP-1 telehealth",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 9
+   "items": 11
   },
   {
    "name": "Google News: Garmin",
@@ -236,14 +236,14 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 2
+   "items": 3
   },
   {
    "name": "Google News: Hims & Hers",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 40
+   "items": 38
   },
   {
    "name": "Google News: Levels",
@@ -264,7 +264,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 19
+   "items": 20
   },
   {
    "name": "Google News: Nourish",
@@ -299,7 +299,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 9
+   "items": 10
   },
   {
    "name": "Google News: Samsung Health",
@@ -313,7 +313,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 4
+   "items": 5
   },
   {
    "name": "Google News: Ultrahuman",
@@ -334,7 +334,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 4
+   "items": 5
   },
   {
    "name": "Google News: Whoop",
@@ -348,14 +348,14 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 30
+   "items": 31
   },
   {
    "name": "Ground Truths (Eric Topol)",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 1
+   "items": 0
   },
   {
    "name": "Healthcare Brew",
@@ -376,7 +376,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 25
+   "items": 24
   },
   {
    "name": "Hospitalogy",
@@ -404,14 +404,14 @@
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 29
+   "items": 30
   },
   {
    "name": "MobiHealthNews",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 24
+   "items": 23
   },
   {
    "name": "Modern Retail",
@@ -446,7 +446,7 @@
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 32
+   "items": 33
   },
   {
    "name": "Oura Blog",
@@ -481,14 +481,14 @@
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 2
+   "items": 3
   },
   {
    "name": "SupplySide Supplement Journal",
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 5
+   "items": 6
   },
   {
    "name": "TechCrunch (Biotech & Health)",
@@ -516,7 +516,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 34
+   "items": 36
   },
   {
    "name": "npj Digital Medicine",
