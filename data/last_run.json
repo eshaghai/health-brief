@@ -1,25 +1,25 @@
 {
- "finished_at": "2026-11-22T17:51:41.464146+00:00",
+ "finished_at": "2026-11-23T22:04:20.722672+00:00",
  "sources_total": 74,
  "sources_ok": 74,
- "fetched": 1059,
- "junk_dropped": 46,
- "duplicates_dropped": 920,
- "new_items": 93,
+ "fetched": 1076,
+ "junk_dropped": 45,
+ "duplicates_dropped": 742,
+ "new_items": 289,
  "sources": [
   {
    "name": "9to5Mac (Apple Health)",
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 2
+   "items": 1
   },
   {
    "name": "9to5Mac (Apple Watch)",
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 2
+   "items": 4
   },
   {
    "name": "Axios (all topics, filtered)",
@@ -33,7 +33,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 9
+   "items": 13
   },
   {
    "name": "BevNET",
@@ -68,14 +68,14 @@
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 3
+   "items": 5
   },
   {
    "name": "Digital Health Wire",
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 3
+   "items": 2
   },
   {
    "name": "Endpoints News (Health Tech)",
@@ -89,14 +89,14 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 14
+   "items": 12
   },
   {
    "name": "Fierce Healthcare",
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 21
+   "items": 20
   },
   {
    "name": "Food Business News",
@@ -131,7 +131,7 @@
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 17
+   "items": 16
   },
   {
    "name": "Google Blog (AI)",
@@ -152,21 +152,21 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 8
+   "items": 7
   },
   {
    "name": "Google News: Anthropic & OpenAI in health",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 40
+   "items": 36
   },
   {
    "name": "Google News: Apple Health",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 29
+   "items": 40
   },
   {
    "name": "Google News: Consumer health AI chatbot",
@@ -180,28 +180,28 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 4
+   "items": 7
   },
   {
    "name": "Google News: Dexcom",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 9
+   "items": 6
   },
   {
    "name": "Google News: Digital health funding",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 34
+   "items": 40
   },
   {
    "name": "Google News: Eight Sleep",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 10
+   "items": 9
   },
   {
    "name": "Google News: Fay",
@@ -215,14 +215,14 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 9
+   "items": 10
   },
   {
    "name": "Google News: GLP-1 telehealth",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 11
+   "items": 10
   },
   {
    "name": "Google News: Garmin",
@@ -243,14 +243,14 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 38
+   "items": 40
   },
   {
    "name": "Google News: Levels",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 33
+   "items": 35
   },
   {
    "name": "Google News: Neko Health",
@@ -264,28 +264,28 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 20
+   "items": 21
   },
   {
    "name": "Google News: Nourish",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 3
+   "items": 5
   },
   {
    "name": "Google News: Oura",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 30
+   "items": 40
   },
   {
    "name": "Google News: Prenuvo",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 2
+   "items": 3
   },
   {
    "name": "Google News: Ro",
@@ -313,7 +313,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 5
+   "items": 4
   },
   {
    "name": "Google News: Ultrahuman",
@@ -327,14 +327,14 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 4
+   "items": 2
   },
   {
    "name": "Google News: WeightWatchers",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 5
+   "items": 4
   },
   {
    "name": "Google News: Whoop",
@@ -362,7 +362,7 @@
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 5
+   "items": 6
   },
   {
    "name": "Healthcare Dive",
@@ -376,7 +376,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 24
+   "items": 22
   },
   {
    "name": "Hospitalogy",
@@ -397,21 +397,21 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 14
+   "items": 17
   },
   {
    "name": "MedCity News",
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 30
+   "items": 29
   },
   {
    "name": "MobiHealthNews",
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 23
+   "items": 24
   },
   {
    "name": "Modern Retail",
@@ -425,7 +425,7 @@
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 20
+   "items": 18
   },
   {
    "name": "NutraIngredients-USA",
@@ -446,7 +446,7 @@
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 33
+   "items": 23
   },
   {
    "name": "Oura Blog",
@@ -467,14 +467,14 @@
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 9
+   "items": 8
   },
   {
    "name": "STAT (Health Tech)",
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 10
+   "items": 8
   },
   {
    "name": "Second Opinion (Christina Farr)",
@@ -488,7 +488,7 @@
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 6
+   "items": 8
   },
   {
    "name": "TechCrunch (Biotech & Health)",
@@ -502,7 +502,7 @@
    "kind": "feed",
    "ok": true,
    "error": null,
-   "items": 2
+   "items": 1
   },
   {
    "name": "WWD Beauty",
@@ -516,7 +516,7 @@
    "kind": "google_news",
    "ok": true,
    "error": null,
-   "items": 36
+   "items": 38
   },
   {
    "name": "npj Digital Medicine",
